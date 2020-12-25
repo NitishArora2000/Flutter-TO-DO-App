@@ -100,6 +100,7 @@ class NoteDetailState extends State<NoteDetail> {
 
   Future<Null> _selectTime(BuildContext context) async {
     picked = await showTimePicker(context: context, initialTime: _time);
+    
 
     if (picked != null && picked != _time) {
       setState(() {
@@ -249,7 +250,9 @@ class NoteDetailState extends State<NoteDetail> {
                               setState(() {
                                 debugPrint("Save button clicked");
                                 _save();
+                                if(picked!=null){
                                 _showNotification();
+                                }
                               });
                             },
                           ),
